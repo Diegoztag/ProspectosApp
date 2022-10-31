@@ -1,0 +1,16 @@
+version: "3.8"
+
+services:
+  app:
+    image: prospectos_api
+    build: .
+    container_name: prospectos_api
+    ports:
+      - "${PORT}:${PORT}"
+    volumes:
+      - .:/home/app
+      - /home/app/node_modules
+
+networks:
+  default:
+    name: prospectos_net
