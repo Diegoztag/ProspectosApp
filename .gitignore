@@ -105,3 +105,5 @@ dist
 
 # Docker
 docker-compose.override.yml
+
+build

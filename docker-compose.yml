@@ -5,11 +5,29 @@ services:
     image: prospectos_api
     build: .
     container_name: prospectos_api
+    restart: always
     ports:
       - "${PORT}:${PORT}"
     volumes:
       - .:/home/app
       - /home/app/node_modules
+    depends_on:
+      - postgres
+
+  postgres:
+    image: postgres
+    container_name: postgres
+    restart: always
+    ports:
+      - 5500:5432
+    # volumes:
+    #   - type: bind
+    #     source: ./datadb
+    #     target: /var/lib/postgresql/data
+    environment:
+      POSTGRES_PASSWORD: "5048715f61ca2096d55f43e2b142515f"
+      POSTGRES_USER: "diegoztag"
+      POSTGRES_DB: "appdb"
 
 networks:
   default:
