@@ -7,6 +7,7 @@ const express_1 = __importDefault(require("express"));
 const morgan_1 = __importDefault(require("morgan"));
 const compression_1 = __importDefault(require("compression"));
 const cors_1 = __importDefault(require("cors"));
+const config_1 = __importDefault(require("./source/setting/config"));
 class Server {
     constructor() {
         this.app = (0, express_1.default)();
@@ -14,11 +15,10 @@ class Server {
     }
     config() {
         //Settings
-        this.app.set('port', 2000);
+        this.app.set('port', config_1.default.port);
         //Middlewares
         this.app.use((0, morgan_1.default)('dev'));
         this.app.use((0, cors_1.default)());
-        // this.app.use(helmet()); //Ojo anda dando problemas switchea de http a https en localhost
         this.app.use((0, compression_1.default)());
         this.app.use(express_1.default.json());
         this.app.use(express_1.default.urlencoded({ extended: true }));

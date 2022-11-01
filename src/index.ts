@@ -2,6 +2,7 @@ import express from 'express'
 import morgan from 'morgan'
 import compression from 'compression'
 import cors from 'cors'
+import config from "./source/setting/config"
 
 class Server {
   app: express.Application;
@@ -13,12 +14,11 @@ class Server {
 
   private config() {
     //Settings
-    this.app.set('port', 2000);
+    this.app.set('port', config.port);
 
     //Middlewares
     this.app.use(morgan('dev'));
     this.app.use(cors());
-    // this.app.use(helmet()); //Ojo anda dando problemas switchea de http a https en localhost
     this.app.use(compression());
     this.app.use(express.json());
     this.app.use(express.urlencoded({ extended: true }));
