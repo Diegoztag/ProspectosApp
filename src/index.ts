@@ -2,6 +2,7 @@ import express from 'express'
 import morgan from 'morgan'
 import compression from 'compression'
 import cors from 'cors'
+import allRoutes from './routes/index.routes'
 import https from 'https'
 import fs from 'fs'
 import config from "./source/setting/config"
@@ -28,6 +29,9 @@ class Server {
     this.app.use(compression());
     this.app.use(express.json());
     this.app.use(express.urlencoded({ extended: true }));
+
+    //Rutas
+    this.app.use(allRoutes);
   }
 
   private async sources() {
