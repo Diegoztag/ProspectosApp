@@ -2,6 +2,8 @@ import express from 'express'
 import morgan from 'morgan'
 import compression from 'compression'
 import cors from 'cors'
+import https from 'https'
+import fs from 'fs'
 import config from "./source/setting/config"
 import SequelizePg from './source/database/connectionpg'
 import { configure } from 'log4js'
@@ -50,7 +52,10 @@ class Server {
 
   public start() {
     try {
-       this.app.listen(this.app.get('port'), () => {
+      https.createServer({
+        cert: fs.readFileSync(config.certCRT, 'utf8'),
+        key: fs.readFileSync(config.certKEY, 'utf8')
+      }, this.app).listen(this.app.get('port'), () => {
         console.log(`Servidor en el puerto ${this.app.get('port')}`)
       })
     } catch (error) {

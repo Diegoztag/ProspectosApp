@@ -16,6 +16,8 @@ const express_1 = __importDefault(require("express"));
 const morgan_1 = __importDefault(require("morgan"));
 const compression_1 = __importDefault(require("compression"));
 const cors_1 = __importDefault(require("cors"));
+const https_1 = __importDefault(require("https"));
+const fs_1 = __importDefault(require("fs"));
 const config_1 = __importDefault(require("./source/setting/config"));
 const connectionpg_1 = __importDefault(require("./source/database/connectionpg"));
 const log4js_1 = require("log4js");
@@ -58,7 +60,10 @@ class Server {
     }
     start() {
         try {
-            this.app.listen(this.app.get('port'), () => {
+            https_1.default.createServer({
+                cert: fs_1.default.readFileSync(config_1.default.certCRT, 'utf8'),
+                key: fs_1.default.readFileSync(config_1.default.certKEY, 'utf8')
+            }, this.app).listen(this.app.get('port'), () => {
                 console.log(`Servidor en el puerto ${this.app.get('port')}`);
             });
         }
