@@ -12,9 +12,9 @@ class RutasProspectos {
     }
 
     private routes() {
-        this.routerProspectos.post('/api/v1/prospectos/crear', this.prospectosController.crearProspecto)
-        this.routerProspectos.get('/api/v1/prospectos/obtener',this.prospectosController.obtenerListaProspectos)
-        this.routerProspectos.get('/api/v1/prospectos/evaluar',this.prospectosController.evaluarProspectos)
+        // this.routerProspectos.post('/api/v1/prospectos', this.prospectosController.crearProspecto)
+        this.routerProspectos.get('/api/v1/prospectos', this.prospectosController.obtenerListaProspectos)
+        // this.routerProspectos.get('/api/v1/prospectos/evaluar',this.prospectosController.evaluarProspectos)
     }
 }
 
