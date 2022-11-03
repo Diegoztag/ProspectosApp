@@ -1,7 +1,8 @@
-export interface IProspectos {
+export interface IProspecto {
     idu_prospecto: number;
     nom_nombre: string;
     nom_apellido_paterno: string;
     nom_apellido_materno: string;
     des_estatus: string;
+    des_observacion?: string;
 }
