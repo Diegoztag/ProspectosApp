@@ -1,5 +1,3 @@
-CREATE EXTENSION pgcrypto;
-
 CREATE TABLE
     ctl_permisos (
         idu_permiso SERIAL NOT NULL,

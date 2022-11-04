@@ -15,7 +15,7 @@ class RutasProspectos {
         this.routerProspectos.get('/api/prospectos', this.prospectosController.obtenerProspectos)
         this.routerProspectos.get('/api/prospectos/:id', this.prospectosController.obtenerProspecto)
         this.routerProspectos.post('/api/prospectos', this.prospectosController.crearProspecto)
-        // this.routerProspectos.get('/api/v1/prospectos/evaluar',this.prospectosController.evaluarProspectos)
+        this.routerProspectos.put('/api/prospectos/:id', this.prospectosController.actualizarProspecto)
     }
 }
 

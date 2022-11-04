@@ -23,12 +23,12 @@ export class ProspectosController {
         let prospectos: IProspecto[];
 
         try {
-            const [resultProspectosList] = await SequelizePG.conn.query(
+            const [resultProspectos] = await SequelizePG.conn.query(
                 FUNCTIONS_PROSPECTOS["obtener_prospectos"]
             );
 
-            if (resultProspectosList) {
-                prospectos = resultProspectosList as IProspecto[];
+            if (resultProspectos) {
+                prospectos = resultProspectos as IProspecto[];
 
                 res.status(200).json({
                     meta: responseMeta(200, "Lista de prospectos", "OK"),
@@ -128,7 +128,34 @@ export class ProspectosController {
         }
     }
 
-    // public evaluarProspectos = async (req: Request, res: Response) => {
-    // }
+    public actualizarProspecto = async (req: Request, res: Response) => {
+        let result: any;
+        let queryParams = {
+            idu_prospecto: req.params.id,
+            idu_cat_estatus: req.body.idu_cat_estatus,
+            des_observacion: req.body.des_observacion
+        };
+
+        try {
+            const [resultActualizarProspecto] = await SequelizePG.conn.query(
+                FUNCTIONS_PROSPECTOS["actualizar_prospecto"],
+                { replacements: queryParams }
+            );
+            result = resultActualizarProspecto[0].fun_actualizarprospecto;
+
+            if (result) {
+                res.status(201).json({
+                    meta: responseMeta(200, "Prospecto Actualizado", "OK"),
+                    data: result,
+                });
+            }
+        } catch (error) {
+            this.logger.error(`${this.msgLog} [FAIL]:: ${error}`);
+            res.status(500).json({
+                meta: responseMeta(500, "Error", "SERVER_ERROR"),
+                data: null,
+            });
+        }
+    }
 
 }

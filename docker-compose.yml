@@ -20,10 +20,11 @@ services:
     restart: always
     ports:
       - 5500:5432
-    # volumes:
-    #   - type: bind
-    #     source: ./datadb
-    #     target: /var/lib/postgresql/data
+    volumes:
+      - pgdata:/var/lib/postgresql/data/
+      - ./datadb/create_schema.sql:/docker-entrypoint-initdb.d/create_schema.sql
+      - ./datadb/functions_schema.sql:/docker-entrypoint-initdb.d/functions_schema.sql
+      - ./datadb/inserts_schema.sql:/docker-entrypoint-initdb.d/inserts_schema.sql
     environment:
       POSTGRES_PASSWORD: "5048715f61ca2096d55f43e2b142515f"
       POSTGRES_USER: "diegoztag"
@@ -32,3 +33,6 @@ services:
 networks:
   default:
     name: prospectos_net
+
+volumes:
+  pgdata:
