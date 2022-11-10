@@ -6,13 +6,13 @@ INSERT INTO
         num_telefono
     )
 VALUES (
-        'Diego',
-        'Zazueta',
-        'Aguirre',
-        '6677984583'
+        'DIEGO',
+        'ZAZUETA',
+        'AGUIRRE',
+        '1'
     ), (
-        'Viridiana',
-        'Romero',
-        'Galvez',
-        '667789568'
+        'VIRIDIANA',
+        'ROMERO',
+        'GALVEZ',
+        '2'
     );

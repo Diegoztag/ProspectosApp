@@ -44,19 +44,6 @@ CREATE TABLE
     );
 
 CREATE TABLE
-    ctl_permisos (
-        idu_permiso SERIAL NOT NULL,
-        idu_promotor INTEGER NOT NULL,
-        des_user VARCHAR(15) NOT NULL,
-        des_pass VARCHAR(100) NOT NULL,
-        opc_cancelado BOOLEAN NOT NULL DEFAULT FALSE,
-        fec_creado TIMESTAMP NOT NULL DEFAULT NOW(),
-        fec_modificado TIMESTAMP NOT NULL DEFAULT NOW(),
-        CONSTRAINT pk_ctl_permisos PRIMARY KEY (idu_permiso),
-        CONSTRAINT fk_ctl_permisos_cat_promotores FOREIGN KEY (idu_promotor) REFERENCES cat_promotores (idu_promotor)
-    );
-
-CREATE TABLE
     cat_documentos (
         idu_documento SERIAL NOT NULL,
         idu_prospecto INTEGER NOT NULL,
@@ -83,7 +70,7 @@ CREATE TABLE
         idu_estatus SERIAL NOT NULL,
         idu_prospecto INTEGER NOT NULL,
         idu_cat_estatus INTEGER NOT NULL DEFAULT 1,
-        des_observacion VARCHAR(100) NOT NULL DEFAULT '',
+        des_observacion VARCHAR(100) NOT NULL DEFAULT 'SIN OBRESVACION',
         opc_cancelado BOOLEAN NOT NULL DEFAULT FALSE,
         fec_creado TIMESTAMP NOT NULL DEFAULT NOW(),
         fec_modificado TIMESTAMP NOT NULL DEFAULT NOW(),

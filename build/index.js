@@ -14,8 +14,8 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
 const morgan_1 = __importDefault(require("morgan"));
-const compression_1 = __importDefault(require("compression"));
 const cors_1 = __importDefault(require("cors"));
+const compression_1 = __importDefault(require("compression"));
 const index_routes_1 = __importDefault(require("./routes/index.routes"));
 const https_1 = __importDefault(require("https"));
 const fs_1 = __importDefault(require("fs"));
@@ -25,11 +25,11 @@ const log4js_1 = require("log4js");
 class Server {
     constructor() {
         this.app = (0, express_1.default)();
-        this.config();
+        this.init();
         this.sources();
         this.log();
     }
-    config() {
+    init() {
         //Settings
         this.app.set('port', config_1.default.port);
         //Middlewares

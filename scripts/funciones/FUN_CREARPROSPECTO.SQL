@@ -9,7 +9,8 @@ CREATE OR REPLACE FUNCTION fun_crearprospecto(
     num_casa_ext INTEGER,
     num_casa_int CHARACTER,
     nom_colonia CHARACTER,
-    num_cp INTEGER)
+    num_cp INTEGER,
+    idu_uuid CHARACTER)
 -- =============================================
 -- Autor: Diego Otniel Zazueta Aguirre
 -- Fecha: 01/11/2022
@@ -32,14 +33,16 @@ BEGIN
             nom_apellido_paterno,
             nom_apellido_materno,
             num_telefono,
-            num_rfc)
+            num_rfc,
+            idu_uuid)
 		VALUES 
             ($1,
             $2,
             $3,
             $4,
             $5,
-            $6);
+            $6,
+            $12);
 
         INSERT INTO cat_direcciones
             (idu_prospecto,
@@ -83,7 +86,8 @@ GRANT execute ON FUNCTION fun_crearprospecto(
     num_casa_ext INTEGER,
     num_casa_int CHARACTER,
     nom_colonia CHARACTER,
-    num_cp INTEGER) TO diegoztag;
+    num_cp INTEGER,
+    idu_uuid CHARACTER) TO diegoztag;
 
 COMMENT ON FUNCTION fun_crearprospecto(
     idu_promotor INTEGER,
@@ -96,7 +100,8 @@ COMMENT ON FUNCTION fun_crearprospecto(
     num_casa_ext INTEGER,
     num_casa_int CHARACTER,
     nom_colonia CHARACTER,
-    num_cp INTEGER) IS 'Inserta o actualiza los datos del prospecto en las tablas correspondientes validandidando la existencia del prspecto por el rfc unico,
+    num_cp INTEGER,
+    idu_uuid CHARACTER) IS 'Inserta o actualiza los datos del prospecto en las tablas correspondientes validandidando la existencia del prspecto por el rfc unico,
 	idu_promotor = idu del promotor que registro al prospecto,
 	nom_nombre = nombre del prospecto,
 	nom_apellido_paterno = apellido paterno,
@@ -107,5 +112,6 @@ COMMENT ON FUNCTION fun_crearprospecto(
 	num_casa_ext = numero de casa,
 	num_casa_int = numero interior,
 	nom_colonia = nombre colonia,
-	num_cp = numero de codigo postal';
+	num_cp = numero de codigo postal
+    idu_uuid = idu generico';
 

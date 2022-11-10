@@ -6,15 +6,15 @@ INSERT INTO
         num_telefono
     )
 VALUES (
-        'Diego',
-        'Zazueta',
-        'Aguirre',
-        '6677984583'
+        'DIEGO',
+        'ZAZUETA',
+        'AGUIRRE',
+        '1'
     ), (
-        'Viridiana',
-        'Romero',
-        'Galvez',
-        '667789568'
+        'VIRIDIANA',
+        'ROMERO',
+        'GALVEZ',
+        '2'
     );
 
 INSERT INTO
@@ -28,40 +28,35 @@ INSERT INTO
     )
 VALUES (
         1,
-        'Juan',
-        'Meza',
-        'Antuna',
+        'JUAN',
+        'MEZA',
+        'ANTUNA',
         '667895424',
         '14521785412'
     ), (
         2,
-        'Jorge',
-        'Esparza',
-        'Enqriquez',
+        'JORGE',
+        'ESPARZA',
+        'ENRIQUEZ',
         '6674859658',
         '142598567854'
+    ), (
+        3,
+        'LUIS',
+        'GUZMAN',
+        'ENRIQUEZ',
+        '6677986285',
+        '13452345AS'
     );
 
 INSERT INTO
     cat_direcciones(idu_prospecto, nom_calle, num_casa_ext, num_casa_int, nom_colonia, num_cp)
-VALUES  (1, 'Isabel la catolica', 30, '2-B', 'Centro', 23400),
-        (2, 'Libertad', 23, '0', 'Cañitas', 453333);
-
-INSERT INTO
-    ctl_permisos(
-        idu_promotor,
-        des_user,
-        des_pass
-    )
-VALUES (1, 'user123', MD5('1234')), (2, 'userabc', MD5('abcd'));
-
-INSERT INTO
-    cat_documentos(idu_prospecto, nom_documento)
-VALUES (1, 'Documento1'), (2, 'Documento2');
+VALUES  (1, 'ISABEL LA CATOLIA', 30, '2-B', 'CENTRO', 23400),
+        (2, 'LIBERTAD', 23, '0', '21 DE MARZO', 453333);
 
 INSERT INTO
     cat_estatus(des_estatus)
-VALUES ('Enviado'), ('Autorizado'), ('Rechazado');
+VALUES ('ENVIADO'), ('AUTORIZADO'), ('RECHAZADO');
 
 INSERT INTO
     ctl_estatus(
@@ -69,4 +64,4 @@ INSERT INTO
         idu_cat_estatus,
         des_observacion
     )
-VALUES (1, 1, ''), (2, 3, 'No pasó examen');
+VALUES (1, 1, ''), (2, 2, ''), (3,3,'FALTA DOCUMENTOS');

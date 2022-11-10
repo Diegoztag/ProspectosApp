@@ -1,7 +1,7 @@
 import express from 'express'
 import morgan from 'morgan'
-import compression from 'compression'
 import cors from 'cors'
+import compression from 'compression'
 import allRoutes from './routes/index.routes'
 import https from 'https'
 import fs from 'fs'
@@ -14,12 +14,12 @@ class Server {
 
   constructor() {
     this.app = express();
-    this.config();
+    this.init();
     this.sources();
     this.log();
   }
 
-  private config() {
+  private init() {
     //Settings
     this.app.set('port', config.port);
 

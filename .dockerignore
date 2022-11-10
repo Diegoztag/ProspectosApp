@@ -1,0 +1,13 @@
+.git
+
+.vscode
+
+node_modules
+
+vendor
+
+Dockerfile
+
+.dockerignore
+
+docker-compose.yml

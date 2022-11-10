@@ -6,24 +6,44 @@ CREATE OR REPLACE FUNCTION fun_obtenerprospecto(idu INTEGER)
 -- ============================================= 
 RETURNS TABLE(
 	idu_prospecto INTEGER,
+	idu_promotor INTEGER,
 	nom_nombre VARCHAR,
 	nom_apellido_paterno VARCHAR,
 	nom_apellido_materno VARCHAR,
+	nom_calle VARCHAR,
+	num_casa_ext INTEGER,
+	num_casa_int VARCHAR,
+	nom_colonia VARCHAR,
+	num_cp INTEGER,
+	num_telefono VARCHAR,
+	num_rfc VARCHAR,
 	des_estatus VARCHAR,
+	idu_cat_estatus INTEGER,
 	des_observacion VARCHAR
 ) AS 
 $BODY$ 
 	BEGIN RETURN query
 	SELECT
 		cp.idu_prospecto,
+		cp.idu_promotor,
 	    cp.nom_nombre,
 	    cp.nom_apellido_paterno,
 	    cp.nom_apellido_materno,
+		cd.nom_calle,
+		cd.num_casa_ext,
+		cd.num_casa_int,
+		cd.nom_colonia,
+		cd.num_cp,
+		cp.num_telefono,
+		cp.num_rfc,
 	    cest.des_estatus,
+		ctle.idu_cat_estatus,
 	    ctle.des_observacion
 	FROM cat_prospectos cp
 	    INNER JOIN ctl_estatus ctle 
 			ON cp.idu_prospecto = ctle.idu_prospecto
+		INNER JOIN cat_direcciones cd
+			ON cd.idu_prospecto = cp.idu_prospecto
 	    INNER JOIN cat_estatus cest 
 			ON cest.idu_estatus = ctle.idu_cat_estatus
 	WHERE

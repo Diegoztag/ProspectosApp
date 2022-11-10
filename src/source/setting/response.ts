@@ -1,4 +1,4 @@
-import { Meta } from "../../source/interfaces/meta.interface";
+import { Meta } from "../../interfaces/meta.interface";
 
 export const responseMeta = (
   statusCode: number,

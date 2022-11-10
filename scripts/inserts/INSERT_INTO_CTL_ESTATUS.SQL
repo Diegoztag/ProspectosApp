@@ -4,4 +4,4 @@ INSERT INTO
         idu_cat_estatus,
         des_observacion
     )
-VALUES (1, 1, ''), (2, 3, 'No pasó examen');
+VALUES (1, 1, ''), (2, 2, ''), (3,3,'FALTA DOCUMENTOS');

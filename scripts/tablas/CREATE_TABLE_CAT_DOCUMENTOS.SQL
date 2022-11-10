@@ -6,6 +6,7 @@ CREATE TABLE
         opc_cancelado BOOLEAN NOT NULL DEFAULT FALSE,
         fec_creado TIMESTAMP NOT NULL DEFAULT NOW(),
         fec_modificado TIMESTAMP NOT NULL DEFAULT NOW(),
+		idu_uuid VARCHAR(100) NOT NULL DEFAULT '',
         CONSTRAINT pk_cat_documentos PRIMARY KEY (idu_documento),
         CONSTRAINT fk_cat_documentos_cat_prospectos FOREIGN KEY (idu_prospecto) REFERENCES cat_prospectos (idu_prospecto)
     );

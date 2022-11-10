@@ -9,16 +9,23 @@ INSERT INTO
     )
 VALUES (
         1,
-        'Juan',
-        'Meza',
-        'Antuna',
+        'JUAN',
+        'MEZA',
+        'ANTUNA',
         '667895424',
         '14521785412'
     ), (
         2,
-        'Jorge',
-        'Esparza',
-        'Enqriquez',
+        'JORGE',
+        'ESPARZA',
+        'ENRIQUEZ',
         '6674859658',
         '142598567854'
+    ), (
+        3,
+        'LUIS',
+        'GUZMAN',
+        'ENRIQUEZ',
+        '6677986285',
+        '13452345AS'
     );
